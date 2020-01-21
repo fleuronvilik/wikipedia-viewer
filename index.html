@@ -6,13 +6,20 @@
     <title>Build A Wikipedia Viewer</title>
     <style>
     input {border: 1px solid blueviolet;}
+
+    .searchmatch {
+      font-weight: bold;
+      background-color: yellow;
+    }
+
+    form input, form a {display: inline-block;}
     </style>
   </head>
 
   <body>
-    <a target="_blank" href="https://en.wikipedia.org/wiki/Special:Random">Click here for Random Article</a>
+
     <form action="index.html" method="GET">
-      <input type="search">
+        <input type="search" placeholder="Search Wikipedia"> or <a target="_blank" href="https://en.wikipedia.org/wiki/Special:Random">Click here for Random Article</a>
     </form>
     <ul class="results"></ul>
     <script src="script.js"></script>
