@@ -1,6 +1,6 @@
 const formElt = document.querySelector("form");
 const [searchElt,] = formElt.children;
-const results = document.querySelector("ul");
+const results = document.querySelector("dl");
 const params = {
   action: "query",
   format: "json",
@@ -35,12 +35,12 @@ searchElt.oninput = function() {
 
 function displayResults(data) {
   data.forEach(item => {
-    const listItem = document.createElement("li");
-    const title = document.createElement("h2");
-    title.innerHTML = `<a href="https://en.wikipedia.org/?curid=${item.pageid}">${item.title}</a>`;
-    listItem.appendChild(title);
-    listItem.innerHTML += item.snippet;
-    results.appendChild(listItem);
+    const listTitle = document.createElement("dt");
+    const listDescription = document.createElement("dd");
+    listTitle.innerHTML = `<a href="https://en.wikipedia.org/?curid=${item.pageid}">${item.title}</a>`;
+    listDescription.innerHTML += item.snippet;
+    results.appendChild(listTitle);
+    results.appendChild(listDescription);
   })
 }
 //https://www.mediawiki.org/wiki/API:Search
